@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:22:49 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:23:03 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 21:02:17 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_init_var(t_variable *var)
 	var->prec = 0;
 	var->conv = 0;
 	var->mod = 0;
-	var->p = 0;
+	var->prec_exist = 0;
 }
 
 char	*ft_mod_cast(va_list args, t_variable *var, int base)

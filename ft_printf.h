@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 20:04:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 20:55:30 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 21:01:31 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@
 
 typedef struct	s_variable
 {
-	int			num;
-	int			space;
-	int			minus;
-	int			pound;
-	int			plus;
-	int			zero;
-	int			width;
-	int			prec;
-	char		conv;
-	char		*mod;
 	int			bytes;
-	int			p;
+	char		conv;
+	int			minus;
+	char		*mod;
+	int			num;
+	int			plus;
+	int			pound;
+	int			prec;
+	int			prec_exist;
+	int			space;
+	int			width;
+	int			zero;
 }				t_variable;
 
 char			*ft_zeros(char *s, t_variable *var);

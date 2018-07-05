@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:27:02 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:27:11 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 21:03:03 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_otoa(unsigned long int number, t_variable *var)
 	var->num += 1;
 	i = 0;
 	print = (char*)malloc(sizeof(char) * 24);
-	if (number == 0 && !var->pound && var->p)
+	if (number == 0 && !var->pound && var->prec_exist)
 		return ("");
 	if (number == 0)
 	{

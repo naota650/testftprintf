@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:23:33 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 20:14:38 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 21:03:19 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_prec_width_parse(char *s, int *i, t_variable *var, va_list args)
 	if (s[*i] && (s[*i] == '.'))
 	{
 		*i += 1;
-		var->p += 1;
+		var->prec_exist += 1;
 		if (s[*i] == '*')
 			var->prec = va_arg(args, int);
 		else if (s[*i] && s[*i] >= '0' && s[*i] <= '9')

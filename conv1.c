@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:25:39 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:33:56 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 21:02:45 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_itoa(int nbr, t_variable *var, int length, int sign)
 
 	sign = nbr;
 	var->num += 1;
-	if (nbr == 0 && var->p)
+	if (nbr == 0 && var->prec_exist)
 		return ("");
 	while (sign /= 10)
 		length++;
@@ -57,7 +57,7 @@ char	*ft_itoabase_umax(size_t num, int base, t_variable *var)
 	var->num += 1;
 	len = get_unumlen(num, base, 1);
 	num == 0 ? var->pound = 0 : 0;
-	if (num == 0 && var->p)
+	if (num == 0 && var->prec_exist)
 		return ("");
 	if (!(str = (char *)malloc(sizeof(*str) * len + 1)))
 		return (NULL);
