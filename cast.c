@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:22:49 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 21:16:03 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 21:38:17 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,46 +68,4 @@ char	*ft_hex_cast(va_list args, t_variable *var, int base)
 		return (ft_itoabase_umax((short)va_arg(args, int), base, var));
 	else
 		return (ft_itoabase_umax(va_arg(args, intmax_t), base, var));
-}
-
-void	ft_putwstr(wchar_t *ws, t_variable *var, int i)
-{
-	var->width -= (ft_wstrlen(ws) - var->prec);
-	var->minus ? var->zero = 0 : 0;
-	if (var->width > 0 && !var->minus)
-		while (var->width)
-		{
-			var->zero ? write(1, "0", 1) : write(1, " ", 1);
-			var->width -= 1;
-		}
-	while (ws[++i])
-	{
-		if (var->prec && var->prec < ft_wstrlen(ws))
-		{
-			while (var->prec--)
-				ft_putchar(ws[i], var);
-			break ;
-		}
-		ft_putchar(ws[i], var);
-		var->bytes += 1;
-	}
-	if (var->width > 0 && var->minus)
-		while (var->width)
-		{
-			var->zero ? write(1, "0", 1) : write(1, " ", 1);
-			var->width -= 1;
-		}
-}
-
-wchar_t	*ft_wchrtostr(wchar_t wchar)
-{
-	wchar_t	*wstr;
-
-	wstr = (wchar_t *)malloc(sizeof(wchar) * 2);
-	if (wstr)
-	{
-		wstr[0] = wchar;
-		wstr[1] = L'\0';
-	}
-	return (wstr);
 }

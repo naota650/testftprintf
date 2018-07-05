@@ -6,73 +6,11 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 21:22:28 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 21:36:00 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char	*ft_zeros(char *str, t_variable *var)
-{
-	char	block[var->prec + 1];
-	int		i;
-
-	i = -1;
-	if (var->prec < 0)
-		return (str);
-	while (++i < var->prec)
-		block[i] = '0';
-	block[i] = '\0';
-	if (str[0] == '-')
-	{
-		str = ft_strjoin(block, &str[1]);
-		str = ft_strjoin("-", str);
-	}
-	else
-		str = ft_strjoin(block, str);
-	var->zero = 0;
-	return (str);
-}
-
-char	*ft_spaces(char *str, t_variable *var)
-{
-	char	block[var->width + 1];
-	int		i;
-	char	edge[2];
-
-	i = 0;
-	edge[0] = str[0];
-	edge[1] = '\0';
-	if (var->width < 1)
-		return (str);
-	while (i < var->width)
-	{
-		block[i] = (var->zero) ? '0' : ' ';
-		i++;
-	}
-	block[i] = '\0';
-	if ((edge[0] == '-' || edge[0] == '+') && var->zero && var->num)
-	{
-		str = ft_strjoin(block, &str[1]);
-		str = ft_strjoin(edge, str);
-	}
-	else
-		str = (var->minus) ? ft_strjoin(str, block) : ft_strjoin(block, str);
-	return (str);
-}
-
-char	*prec_copy(char *str, t_variable *var)
-{
-	char	*dest;
-	int		i;
-
-	i = -1;
-	dest = (char*)malloc(sizeof(char) * var->prec + 1);
-	while (++i < var->prec)
-		dest[i] = str[i];
-	dest[i] = '\0';
-	return (dest);
-}
 
 void	ft_apply_flags(char *s, t_variable *var)
 {
