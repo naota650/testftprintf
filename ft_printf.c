@@ -6,17 +6,19 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:21:30 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:22:29 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 19:39:32 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	check_format(const char *format, va_list args, int i, int *bytes)
+void	check_format(const char *format, va_list args, int *bytes)
 {
 	t_variable		var;
+	int				i;
 	int				x;
 
+	i = -1;
 	x = ft_strlen((char*)format);
 	while (format[++i])
 	{
@@ -46,7 +48,7 @@ int		ft_printf(const char *format, ...)
 
 	bytes = 0;
 	va_start(args, format);
-	check_format(format, args, -1, &bytes);
+	check_format(format, args, &bytes);
 	va_end(args);
 	return (bytes);
 }
