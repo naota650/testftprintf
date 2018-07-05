@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 20:04:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 21:22:59 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 21:41:43 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char			*ft_spaces(char *str, t_variable *var);
 char			*prec_copy(char *str, t_variable *var);
 void			ft_apply_flags(char *s, t_variable *var);
 void			ft_handle_it(t_variable *var, va_list args);
-void			ft_init_var(t_variable *var);
+void			init_var(t_variable *var);
 char			*ft_mod_cast(va_list args, t_variable *var, int base);
 char			*ft_hex_cast(va_list args, t_variable *var, int base);
 void			ft_putwstr(wchar_t *ws, t_variable *var, int i);

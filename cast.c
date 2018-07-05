@@ -6,13 +6,13 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:22:49 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 21:38:17 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 21:40:54 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_init_var(t_variable *var)
+void	init_var(t_variable *var)
 {
 	var->bytes = 0;
 	var->num = 0;

@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:21:30 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:41:31 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 21:42:15 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	check_format(const char *format, va_list args, int *bytes)
 	x = ft_strlen((char*)format);
 	while (format[++i])
 	{
-		ft_init_var(&var);
+		init_var(&var);
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
 			ft_putchar('%', &var);
