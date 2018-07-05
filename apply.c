@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 21:17:47 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 21:22:28 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_spaces(char *str, t_variable *var)
 	return (str);
 }
 
-char	*ft_chop(char *str, t_variable *var)
+char	*prec_copy(char *str, t_variable *var)
 {
 	char	*dest;
 	int		i;
@@ -83,7 +83,7 @@ void	ft_apply_flags(char *s, t_variable *var)
 	}
 	(s[0] == '-') ? var->prec += 1 : 0;
 	if (!var->num)
-		s = (var->prec) ? ft_chop(s, var) : s;
+		s = (var->prec) ? prec_copy(s, var) : s;
 	s = (var->pound && var->conv == 'x' && !var->zero)
 		? ft_strjoin("0x", s) : s;
 	s = (var->pound && var->conv == 'X' && !var->zero)
