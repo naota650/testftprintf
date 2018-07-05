@@ -6,11 +6,27 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:20:27 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 20:05:03 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 20:11:05 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+char	*ft_strrev(char *str, int i, int length)
+{
+	char	filler;
+	
+	while (str[length])
+		length++;
+	while (length - 1 > ++i)
+	{
+		filler = str[i];
+		str[i] = str[length - 1];
+		str[length -1] = filler;
+		length--;
+	}
+	return (str);
+}
 
 char	*ft_strcpy(char *dest, const char *src, size_t i)
 {
@@ -50,16 +66,6 @@ char	*ft_strdup(char *s1)
 		s2[i] = '\0';
 	}
 	return (s2);
-}
-
-int		ft_wstrlen(const wchar_t *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len] != L'\0')
-		len++;
-	return (len);
 }
 
 int		ft_strcmp(const char *s1, const char *s2)

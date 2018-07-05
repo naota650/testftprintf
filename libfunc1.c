@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:06 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 20:05:11 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 20:11:01 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,6 @@ void	ft_putstr(char *str, t_variable *var)
 	}
 }
 
-char	*ft_strrev(char *str, int i, int length)
-{
-	char	buff;
-
-	while (str[length])
-		length++;
-	while (length - 1 > ++i)
-	{
-		buff = str[i];
-		str[i] = str[length - 1];
-		str[length - 1] = buff;
-		length--;
-	}
-	return (str);
-}
-
 int		ft_strlen(char *str)
 {
 	int	i;
@@ -70,4 +54,14 @@ int		ft_nbrlen(int number, int i)
 		i++;
 	}
 	return (i);
+}
+
+int		ft_wstrlen(const wchar_t *str)
+{
+	int length;
+
+	length = 0;
+	while (str[length] != L'\0')
+		length++;
+	return (length);
 }
