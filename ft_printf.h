@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 20:04:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 20:13:38 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 20:55:30 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ typedef struct	s_variable
 
 char			*ft_zeros(char *s, t_variable *var);
 char			*ft_strcat(char *dest, const char *src);
-char			*ft_spaces(char *s, t_variable *var);
-char			*ft_chop(char *s, t_variable *var, int i);
+char			*ft_spaces(char *str, t_variable *var);
+char			*ft_chop(char *str, t_variable *var);
 void			ft_apply_flags(char *s, t_variable *var);
 void			ft_handle_it(t_variable *var, va_list args);
 void			ft_init_var(t_variable *var);

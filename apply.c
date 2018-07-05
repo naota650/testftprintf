@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:49:03 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 20:56:28 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ char	*ft_zeros(char *s, t_variable *var)
 	return (s);
 }
 
-char	*ft_spaces(char *s, t_variable *var)
+char	*ft_spaces(char *str, t_variable *var)
 {
 	char	block[var->width + 1];
 	int		i;
 	char	edge[2];
 
 	i = 0;
-	edge[0] = s[0];
+	edge[0] = str[0];
 	edge[1] = '\0';
 	if (var->width < 1)
-		return (s);
+		return (str);
 	while (i < var->width)
 	{
 		block[i] = (var->zero) ? '0' : ' ';
@@ -53,21 +53,23 @@ char	*ft_spaces(char *s, t_variable *var)
 	block[i] = '\0';
 	if ((edge[0] == '-' || edge[0] == '+') && var->zero && var->num)
 	{
-		s = ft_strjoin(block, &s[1]);
-		s = ft_strjoin(edge, s);
+		str = ft_strjoin(block, &str[1]);
+		str = ft_strjoin(edge, str);
 	}
 	else
-		s = (var->minus) ? ft_strjoin(s, block) : ft_strjoin(block, s);
-	return (s);
+		str = (var->minus) ? ft_strjoin(str, block) : ft_strjoin(block, str);
+	return (str);
 }
 
-char	*ft_chop(char *s, t_variable *var, int i)
+char	*ft_chop(char *str, t_variable *var)
 {
 	char	*dest;
+	int		i;
 
+	i = -1;
 	dest = (char*)malloc(sizeof(char) * var->prec + 1);
 	while (++i < var->prec)
-		dest[i] = s[i];
+		dest[i] = str[i];
 	dest[i] = '\0';
 	return (dest);
 }
@@ -81,7 +83,7 @@ void	ft_apply_flags(char *s, t_variable *var)
 	}
 	(s[0] == '-') ? var->prec += 1 : 0;
 	if (!var->num)
-		s = (var->prec) ? ft_chop(s, var, -1) : s;
+		s = (var->prec) ? ft_chop(s, var) : s;
 	s = (var->pound && var->conv == 'x' && !var->zero)
 		? ft_strjoin("0x", s) : s;
 	s = (var->pound && var->conv == 'X' && !var->zero)
