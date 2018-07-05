@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:23:33 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:23:49 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 19:50:00 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,13 @@ int		ft_parse(char *s, int *i, t_variable *var, va_list args)
 	if (ft_conv_check(-1, "sSpdDioOuUxXcC", s[*i], var))
 		return (1);
 	if (var->zero)
-		ft_putstr(ft_zeros("", var), var, -1);
+		ft_putstr(ft_zeros("", var), var);
 	if (var->width)
 	{
 		var->width -= 1;
 		(var->minus) ? ft_putchar(s[*i], var) : 0;
 		(var->minus) ? *i += 1 : 0;
-		ft_putstr(ft_spaces("", var), var, -1);
+		ft_putstr(ft_spaces("", var), var);
 	}
 	return (0);
 }

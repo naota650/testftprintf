@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:06 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:41:35 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 19:48:24 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ void	ft_putchar(char c, t_variable *var)
 	var->bytes += 1;
 }
 
-void	ft_putstr(char *str, t_variable *var, int i)
+void	ft_putstr(char *str, t_variable *var)
 {
+	int i;
+
+	i = -1;
 	if (!str)
 	{
 		write(1, "(null)", 6);

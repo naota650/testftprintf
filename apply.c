@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:25:11 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 19:49:03 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ft_apply_flags(char *s, t_variable *var)
 {
 	if (!s)
 	{
-		ft_putstr("(null)", var, -1);
+		ft_putstr("(null)", var);
 		return ;
 	}
 	(s[0] == '-') ? var->prec += 1 : 0;
@@ -96,7 +96,7 @@ void	ft_apply_flags(char *s, t_variable *var)
 	s = (var->pound && var->conv == 'x' && var->zero) ? ft_strjoin("0x", s) : s;
 	s = (var->pound && var->conv == 'X' && var->zero) ? ft_strjoin("0X", s) : s;
 	s = (var->space && s[0] != '-') ? ft_strjoin(" ", s) : s;
-	ft_putstr(s, var, -1);
+	ft_putstr(s, var);
 }
 
 void	ft_handle_it(t_variable *var, va_list args)
