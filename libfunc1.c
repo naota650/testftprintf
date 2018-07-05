@@ -7,16 +7,16 @@ void	ft_putchar(char c, t_variable *var)
 	var->bytes += 1;
 }
 
-void	ft_putstr(char *s, t_variable *var, int i)
+void	ft_putstr(char *str, t_variable *var, int i)
 {
-	if (!s)
+	if (!str)
 	{
 		write(1, "(null)", 6);
 		return ;
 	}
-	while (s[++i])
+	while (str[++i])
 	{
-		write(1, &s[i], 1);
+		write(1, &str[i], 1);
 		var->bytes += 1;
 	}
 }
@@ -37,12 +37,12 @@ char	*ft_strrev(char *str, int i, int length)
 	return (str);
 }
 
-int		ft_strlen(char *s)
+int		ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
+	while (str[i])
 		i++;
 	return (i);
 }
