@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void	ft_printf2(const char *format, va_list args, int i, int *bytes)
+void	check_format(const char *format, va_list args, int i, int *bytes)
 {
 	t_variable		var;
 	int				x;
@@ -34,7 +34,7 @@ int		ft_printf(const char *format, ...)
 
 	bytes = 0;
 	va_start(args, format);
-	ft_printf2(format, args, -1, &bytes);
+	check_format(format, args, -1, &bytes);
 	va_end(args);
 	return (bytes);
 }
