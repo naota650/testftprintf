@@ -6,32 +6,32 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 20:56:28 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 21:17:47 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_zeros(char *s, t_variable *var)
+char	*ft_zeros(char *str, t_variable *var)
 {
 	char	block[var->prec + 1];
 	int		i;
 
 	i = -1;
 	if (var->prec < 0)
-		return (s);
+		return (str);
 	while (++i < var->prec)
 		block[i] = '0';
 	block[i] = '\0';
-	if (s[0] == '-')
+	if (str[0] == '-')
 	{
-		s = ft_strjoin(block, &s[1]);
-		s = ft_strjoin("-", s);
+		str = ft_strjoin(block, &str[1]);
+		str = ft_strjoin("-", str);
 	}
 	else
-		s = ft_strjoin(block, s);
+		str = ft_strjoin(block, str);
 	var->zero = 0;
-	return (s);
+	return (str);
 }
 
 char	*ft_spaces(char *str, t_variable *var)
