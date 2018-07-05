@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:06 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:48:24 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 20:05:11 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,12 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strcpy(char *dest, const char *src, size_t i)
+int		ft_nbrlen(int number, int i)
 {
-	while (src[++i])
-		dest[i] = src[i];
-	dest[i] = '\0';
-	return (dest);
+	while (number != 0)
+	{
+		number /= 10;
+		i++;
+	}
+	return (i);
 }

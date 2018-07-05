@@ -6,20 +6,18 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:20:27 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:32:08 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 20:05:03 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_nbrlen(int number, int i)
+char	*ft_strcpy(char *dest, const char *src, size_t i)
 {
-	while (number != 0)
-	{
-		number /= 10;
-		i++;
-	}
-	return (i);
+	while (src[++i])
+		dest[i] = src[i];
+	dest[i] = '\0';
+	return (dest);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
