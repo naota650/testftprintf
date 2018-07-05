@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:06 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 20:11:01 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 20:14:01 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,11 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-int		ft_nbrlen(int number, int i)
+int		ft_nbrlen(int number)
 {
+	int i;
+
+	i = 0;
 	while (number != 0)
 	{
 		number /= 10;

@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:23:33 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:50:00 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 20:14:38 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_prec_width_parse(char *s, int *i, t_variable *var, va_list args)
 		else
 		{
 			var->width = (ft_atoi(&s[*i], 0, 0, 1));
-			*i += ft_nbrlen(ft_atoi(&s[*i], 0, 0, 1), 0);
+			*i += ft_nbrlen(ft_atoi(&s[*i], 0, 0, 1));
 		}
 	}
 	if (s[*i] && (s[*i] == '.'))

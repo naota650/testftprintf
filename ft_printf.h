@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 20:04:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:46:06 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 20:13:38 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void			ft_putstr(char *s, t_variable *var);
 char			*ft_strrev(char *str, int i, int length);
 int				ft_strlen(char *s);
 char			*ft_strcpy(char *dest, const char *src, size_t i);
-int				ft_nbrlen(int number, int i);
+int				ft_nbrlen(int number);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strdup(char *s1);
 int				ft_wstrlen(const wchar_t *str);
