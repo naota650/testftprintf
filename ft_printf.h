@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 20:04:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 21:41:43 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 15:55:20 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char			*ft_hex_cast(va_list args, t_variable *var, int base);
 void			ft_putwstr(wchar_t *ws, t_variable *var, int i);
 wchar_t			*ft_wchrtostr(wchar_t wchar);
 char			*ft_itoa(int nbr, t_variable *var, int length, int sign);
-int				get_unumlen(size_t num, int base, int i);
+int				num_base_length(size_t num, int base);
 char			*ft_itoabase_umax(size_t num, int base, t_variable *var);
 int				get_snumlen(intmax_t num, int i);
 char			*ft_itoa_smax(intmax_t num);
