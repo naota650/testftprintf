@@ -1,10 +1,10 @@
 #include "ft_printf.h"
 
-int		ft_nbrlen(int n, int i)
+int		ft_nbrlen(int number, int i)
 {
-	while (n != 0)
+	while (number != 0)
 	{
-		n /= 10;
+		number /= 10;
 		i++;
 	}
 	return (i);
@@ -26,18 +26,18 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 char	*ft_strdup(char *s1, int i)
 {
-	int		s1_len;
-	char	*str_copy;
+	int		length;
+	char	*s2;
 
-	s1_len = ft_strlen(s1);
-	str_copy = malloc(sizeof(*str_copy) * (s1_len + 1));
-	if (str_copy)
+	length = ft_strlen(s1);
+	s2 = malloc(sizeof(*s2) * (length + 1));
+	if (s2)
 	{
 		while (s1[++i] != '\0')
-			str_copy[i] = s1[i];
-		str_copy[i] = '\0';
+			s2[i] = s1[i];
+		s2[i] = '\0';
 	}
-	return (str_copy);
+	return (s2);
 }
 
 int		ft_wstrlen(const wchar_t *s)
