@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 20:04:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 16:17:52 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 19:14:38 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ void			ft_putstr(char *s, t_variable *var, int i);
 char			*ft_strrev(char *str, int i, int length);
 int				ft_strlen(char *s);
 char			*ft_strcpy(char *dest, const char *src, size_t i);
-int				ft_nbrlen(int n, int i);
+int				ft_nbrlen(int number, int i);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strdup(char *s1, int i);
-int				ft_wstrlen(const wchar_t *s);
+int				ft_wstrlen(const wchar_t *str);
 int				ft_strcmp(const char *s1, const char *s2);
 
 #endif

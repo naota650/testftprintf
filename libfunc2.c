@@ -40,12 +40,12 @@ char	*ft_strdup(char *s1, int i)
 	return (s2);
 }
 
-int		ft_wstrlen(const wchar_t *s)
+int		ft_wstrlen(const wchar_t *str)
 {
 	int	len;
 
 	len = 0;
-	while (s[len] != L'\0')
+	while (str[len] != L'\0')
 		len++;
 	return (len);
 }
