@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:25:39 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:25:44 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 19:33:56 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_itoa(int nbr, t_variable *var, int length, int sign)
 	length = nbr < 0 ? length += 1 : length;
 	str = (char*)malloc(sizeof(char) * length + 1);
 	if (nbr == -2147483648)
-		return (str = ft_strdup("-2147483648", -1));
+		return (str = ft_strdup("-2147483648"));
 	if (!str)
 		return (NULL);
 	(sign) ? str[0] = '-' : 0;
@@ -53,7 +53,7 @@ char	*ft_itoabase_umax(size_t num, int base, t_variable *var)
 	int				len;
 	char			*basestr;
 
-	basestr = ft_strdup("0123456789abcdef", -1);
+	basestr = ft_strdup("0123456789abcdef");
 	var->num += 1;
 	len = get_unumlen(num, base, 1);
 	num == 0 ? var->pound = 0 : 0;

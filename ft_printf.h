@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 20:04:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:26:37 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 19:31:39 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int				ft_strlen(char *s);
 char			*ft_strcpy(char *dest, const char *src, size_t i);
 int				ft_nbrlen(int number, int i);
 char			*ft_strjoin(char const *s1, char const *s2);
-char			*ft_strdup(char *s1, int i);
+char			*ft_strdup(char *s1);
 int				ft_wstrlen(const wchar_t *str);
 int				ft_strcmp(const char *s1, const char *s2);
 
