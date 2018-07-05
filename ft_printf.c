@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/04 19:21:30 by lmartine          #+#    #+#             */
+/*   Updated: 2018/07/04 19:22:29 by lmartine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	check_format(const char *format, va_list args, int i, int *bytes)
@@ -38,4 +50,3 @@ int		ft_printf(const char *format, ...)
 	va_end(args);
 	return (bytes);
 }
-

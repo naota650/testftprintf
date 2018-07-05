@@ -6,17 +6,17 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 20:04:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 19:14:38 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/04 19:26:37 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdarg.h>
-#include <wchar.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
+# include <wchar.h>
 
 typedef struct	s_variable
 {
