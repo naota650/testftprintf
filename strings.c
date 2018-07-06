@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 21:27:46 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 21:38:38 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 19:41:40 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ wchar_t		*ft_wchrtostr(wchar_t wchar)
 	return (wstr);
 }
 
-char		*ft_zeros(char *str, t_variable *var)
+char		*str_zeros(char *str, t_variable *var)
 {
 	char	block[var->prec + 1];
 	int		i;
