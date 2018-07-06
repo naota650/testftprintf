@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 19:52:31 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 19:56:39 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,21 @@ void	convert_variable(t_variable *var, va_list args)
 		do_flags(va_arg(args, char*), var);
 	else if (var->conv == 'c')
 		ft_putchar(va_arg(args, int), var);
-	else if (var->conv == 'D')
-		do_flags(ft_itoabase_umax(va_arg(args, long), 10, var), var);
-	else if (var->conv == 'S' ||
-			(var->conv == 's' && ft_strcmp("l", var->mod) == 0))
-		ft_putwstr(va_arg(args, wchar_t*), var, -1);
 	else if (var->conv == 'C')
 		ft_putwstr((ft_wchrtostr(va_arg(args, wchar_t))), var, -1);
+	else if (var->conv == 'd' || var->conv == 'i')
+		do_flags(ft_mod_cast(args, var, 10), var);
+	else if (var->conv == 'D')
+		do_flags(ft_itoabase_umax(va_arg(args, long), 10, var), var);
 	else if (var->conv == 'o' || var->conv == 'O')
 		do_flags(ft_otoa(va_arg(args, unsigned int), var), var);
 	else if (var->conv == 'p')
 		do_flags(ft_ptoa(va_arg(args, unsigned long int), var), var);
-	else if (var->conv == 'd' || var->conv == 'i')
-		do_flags(ft_mod_cast(args, var, 10), var);
-	else if (var->conv == 'x' || var->conv == 'X')
-		do_flags(ft_hex_cast(args, var, 16), var);
+	else if (var->conv == 'S' ||
+			(var->conv == 's' && ft_strcmp("l", var->mod) == 0))
+		ft_putwstr(va_arg(args, wchar_t*), var, -1);
 	else if (var->conv == 'u' || var->conv == 'U')
 		do_flags(ft_itoabase_umax(va_arg(args, intmax_t), 10, var), var);
+	else if (var->conv == 'x' || var->conv == 'X')
+		do_flags(ft_hex_cast(args, var, 16), var);
 }
