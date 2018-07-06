@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:21:30 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 21:42:15 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 19:05:08 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	check_format(const char *format, va_list args, int *bytes)
 		else if (format[i] == '%')
 		{
 			if (ft_parse((char*)format, &i, &var, args))
-				ft_handle_it(&var, args);
+				convert_variable(&var, args);
 			else if (format[i])
 				ft_putchar(format[i], &var);
 		}

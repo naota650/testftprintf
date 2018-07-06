@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 18:56:23 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 19:04:14 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	do_flags(char *str, t_variable *var)
 	ft_putstr(str, var);
 }
 
-void	ft_handle_it(t_variable *var, va_list args)
+void	convert_variable(t_variable *var, va_list args)
 {
 	(var->plus) ? var->space = 0 : 0;
 	(var->conv == 'u' || var->conv == 'U') ? var->plus = 0 : 0;
