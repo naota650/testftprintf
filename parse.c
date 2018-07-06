@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:23:33 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 20:02:18 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 20:06:20 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		conv_check(char *str, char c, t_variable *var)
 	return (0);
 }
 
-void	ft_mod_check(char *s, int *i, t_variable *var)
+void	init_mod(char *s, int *i, t_variable *var)
 {
 	(s[*i] == 'h' && s[*i + 1] == 'h') ? var->mod = "hh" : 0;
 	(s[*i] == 'h' && s[*i + 1] != 'h') ? var->mod = "h" : 0;
@@ -38,7 +38,7 @@ void	ft_mod_check(char *s, int *i, t_variable *var)
 		*i += ft_strlen(var->mod);
 }
 
-void	ft_flag_save(char *s, t_variable *var, int *i)
+void	init_flag(char *s, t_variable *var, int *i)
 {
 	while (s[*i] && (s[*i] == '#' || s[*i] == '0' ||
 				s[*i] == '-' || s[*i] == '+' || s[*i] == ' '))
@@ -84,9 +84,9 @@ void	ft_prec_width_parse(char *s, int *i, t_variable *var, va_list args)
 int		ft_parse(char *s, int *i, t_variable *var, va_list args)
 {
 	*i += 1;
-	ft_flag_save(s, var, i);
+	init_flag(s, var, i);
 	ft_prec_width_parse(s, i, var, args);
-	ft_mod_check(s, i, var);
+	init_mod(s, i, var);
 	if (conv_check("sSpdDioOuUxXcC", s[*i], var))
 		return (1);
 	if (var->zero)

@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 20:04:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 19:59:29 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 20:06:06 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ char			*ft_otoa(unsigned long int number, t_variable *var);
 char			*ft_ptoa(unsigned long int number, t_variable *var);
 int				ft_printf(const char *format, ...);
 int				conv_check(char *s, char c, t_variable *var);
-void			ft_mod_check(char *s, int *i, t_variable *var);
-void			ft_flag_save(char *s, t_variable *var, int *i);
+void			init_mod(char *s, int *i, t_variable *var);
+void			init_flag(char *s, t_variable *var, int *i);
 void			ft_prec_width_parse(char *s, int *i,
 		t_variable *var, va_list args);
 int				ft_parse(char *s, int *i, t_variable *var, va_list args);
