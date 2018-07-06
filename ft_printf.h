@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 20:04:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 20:30:46 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 20:40:52 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void			parse_prec_width(char *s, int *i,
 int				parse_format(char *s, int *i, t_variable *var, va_list args);
 void			ft_putchar(char c, t_variable *var);
 void			ft_putstr(char *s, t_variable *var);
-char			*ft_strrev(char *str, int i, int length);
+char			*ft_strrev(char *str);
 int				ft_strlen(char *s);
 char			*ft_strcpy(char *dest, const char *src, size_t i);
 int				ft_nbrlen(int number);

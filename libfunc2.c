@@ -6,16 +6,20 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:20:27 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 16:11:46 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 20:42:12 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strrev(char *str, int i, int length)
+char	*ft_strrev(char *str)
 {
 	char	filler;
+	int		i;
+	int		length;
 
+	i = -1;
+	length = 0;
 	while (str[length])
 		length++;
 	while (length - 1 > ++i)

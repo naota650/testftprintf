@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:27:02 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 20:31:13 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 20:42:15 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_otoa(unsigned long int number, t_variable *var)
 		i++;
 	}
 	print[i] = '\0';
-	ft_strrev(print, -1, 0);
+	ft_strrev(print);
 	(x != 0 && var->pound) ? print = ft_strjoin("0", print) : 0;
 	return (print);
 }
@@ -80,7 +80,7 @@ char	*ft_ptoa(unsigned long int number, t_variable *var)
 		print[i++] = "0123456789abcdef"[number % 16];
 		number /= 16;
 	}
-	print = ft_strrev(print, -1, 0);
+	print = ft_strrev(print);
 	print = ft_strjoin("0x", print);
 	return (print);
 }
