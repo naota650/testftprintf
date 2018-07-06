@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:23:33 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 20:18:01 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 20:32:58 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	parse_prec_width(char *str, int *i, t_variable *var, va_list args)
 		}
 		else
 		{
-			var->width = (ft_atoi(&str[*i], 0, 0, 1));
-			*i += ft_nbrlen(ft_atoi(&str[*i], 0, 0, 1));
+			var->width = (ft_atoi(&str[*i]));
+			*i += ft_nbrlen(ft_atoi(&str[*i]));
 		}
 	}
 	if (str[*i] && (str[*i] == '.'))
@@ -75,7 +75,7 @@ void	parse_prec_width(char *str, int *i, t_variable *var, va_list args)
 		if (str[*i] == '*')
 			var->prec = va_arg(args, int);
 		else if (str[*i] && str[*i] >= '0' && str[*i] <= '9')
-			var->prec = (ft_atoi(&str[*i], 0, 0, 1));
+			var->prec = (ft_atoi(&str[*i]));
 		while ((str[*i] >= '0' && str[*i] <= '9') || str[*i] == '*')
 			*i += 1;
 	}

@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 20:04:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 20:21:44 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 20:30:46 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int				num_base_length(size_t num, int base);
 char			*ft_itoabase_umax(size_t num, int base, t_variable *var);
 int				get_snumlen(intmax_t num, int i);
 char			*ft_itoa_smax(intmax_t num);
-int				ft_atoi(char *str, int i, int nb, int sign);
+int				ft_atoi(char *str);
 char			*ft_otoa(unsigned long int number, t_variable *var);
 char			*ft_ptoa(unsigned long int number, t_variable *var);
 int				ft_printf(const char *format, ...);

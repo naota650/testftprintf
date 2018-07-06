@@ -6,25 +6,32 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:27:02 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 21:03:03 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 20:31:13 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_atoi(char *s, int i, int nb, int sign)
+int		ft_atoi(char *str)
 {
-	if (!s)
+	int i;
+	int nb;
+	int sign;
+
+	i = 0;
+	nb = 0;
+	sign = 1;
+	if (!str)
 		return (0);
-	while (s[i] && (s[i] == ' ' || s[i] == '\t' || s[i] == '\n'))
+	while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
 		i++;
-	if (s[i] == '-')
+	if (str[i] == '-')
 		sign = -1;
-	if (s[i] == '-' || s[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 		i++;
-	while (s[i] >= '0' && s[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		nb = (nb * 10) + (s[i] - '0');
+		nb = (nb * 10) + (str[i] - '0');
 		i++;
 	}
 	return (sign * nb);
