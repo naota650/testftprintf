@@ -6,37 +6,37 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/04 21:36:00 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 18:56:23 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_apply_flags(char *s, t_variable *var)
+void	do_flags(char *str, t_variable *var)
 {
-	if (!s)
+	if (!str)
 	{
 		ft_putstr("(null)", var);
 		return ;
 	}
-	(s[0] == '-') ? var->prec += 1 : 0;
+	(str[0] == '-') ? var->prec += 1 : 0;
 	if (!var->num)
-		s = (var->prec) ? prec_copy(s, var) : s;
-	s = (var->pound && var->conv == 'x' && !var->zero)
-		? ft_strjoin("0x", s) : s;
-	s = (var->pound && var->conv == 'X' && !var->zero)
-		? ft_strjoin("0X", s) : s;
-	(var->space && s[0] != '-') ? var->width -= 1 : 0;
-	var->prec -= ft_strlen(s);
-	(var->plus && s[0] != '-') ? var->width -= 1 : 0;
-	s = (var->num) ? ft_zeros(s, var) : s;
-	var->width -= ft_strlen(s);
-	s = (var->plus && s[0] != '-') ? ft_strjoin("+", s) : s;
-	s = ft_spaces(s, var);
-	s = (var->pound && var->conv == 'x' && var->zero) ? ft_strjoin("0x", s) : s;
-	s = (var->pound && var->conv == 'X' && var->zero) ? ft_strjoin("0X", s) : s;
-	s = (var->space && s[0] != '-') ? ft_strjoin(" ", s) : s;
-	ft_putstr(s, var);
+		str = (var->prec) ? prec_copy(str, var) : str;
+	str = (var->pound && var->conv == 'x' && !var->zero)
+		? ft_strjoin("0x", str) : str;
+	str = (var->pound && var->conv == 'X' && !var->zero)
+		? ft_strjoin("0X", str) : str;
+	(var->space && str[0] != '-') ? var->width -= 1 : 0;
+	var->prec -= ft_strlen(str);
+	(var->plus && str[0] != '-') ? var->width -= 1 : 0;
+	str = (var->num) ? ft_zeros(str, var) : str;
+	var->width -= ft_strlen(str);
+	str = (var->plus && str[0] != '-') ? ft_strjoin("+", str) : str;
+	str = ft_spaces(str, var);
+	str = (var->pound && var->conv == 'x' && var->zero) ? ft_strjoin("0x", str) : str;
+	str = (var->pound && var->conv == 'X' && var->zero) ? ft_strjoin("0X", str) : str;
+	str = (var->space && str[0] != '-') ? ft_strjoin(" ", str) : str;
+	ft_putstr(str, var);
 }
 
 void	ft_handle_it(t_variable *var, va_list args)
@@ -46,9 +46,9 @@ void	ft_handle_it(t_variable *var, va_list args)
 	(var->conv == 'u' || var->conv == 'U') ? var->space = 0 : 0;
 	(var->zero && var->minus) ? var->zero = 0 : 0;
 	if (var->conv == 's' && !var->mod)
-		ft_apply_flags(va_arg(args, char*), var);
+		do_flags(va_arg(args, char*), var);
 	else if (var->conv == 'D')
-		ft_apply_flags(ft_itoabase_umax(va_arg(args, long), 10, var), var);
+		do_flags(ft_itoabase_umax(va_arg(args, long), 10, var), var);
 	else if (var->conv == 'S' ||
 			(var->conv == 's' && ft_strcmp("l", var->mod) == 0))
 		ft_putwstr(va_arg(args, wchar_t*), var, -1);
@@ -57,13 +57,13 @@ void	ft_handle_it(t_variable *var, va_list args)
 	else if (var->conv == 'c')
 		ft_putchar(va_arg(args, int), var);
 	else if (var->conv == 'o' || var->conv == 'O')
-		ft_apply_flags(ft_otoa(va_arg(args, unsigned int), var), var);
+		do_flags(ft_otoa(va_arg(args, unsigned int), var), var);
 	else if (var->conv == 'p')
-		ft_apply_flags(ft_ptoa(va_arg(args, unsigned long int), var), var);
+		do_flags(ft_ptoa(va_arg(args, unsigned long int), var), var);
 	else if (var->conv == 'd' || var->conv == 'i')
-		ft_apply_flags(ft_mod_cast(args, var, 10), var);
+		do_flags(ft_mod_cast(args, var, 10), var);
 	else if (var->conv == 'x' || var->conv == 'X')
-		ft_apply_flags(ft_hex_cast(args, var, 16), var);
+		do_flags(ft_hex_cast(args, var, 16), var);
 	else if (var->conv == 'u' || var->conv == 'U')
-		ft_apply_flags(ft_itoabase_umax(va_arg(args, intmax_t), 10, var), var);
+		do_flags(ft_itoabase_umax(va_arg(args, intmax_t), 10, var), var);
 }
