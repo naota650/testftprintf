@@ -6,16 +6,19 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:23:33 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 19:39:33 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 20:02:18 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_conv_check(int i, char *s, char c, t_variable *var)
+int		conv_check(char *str, char c, t_variable *var)
 {
-	while (s[++i])
-		if (c == s[i])
+	int i;
+
+	i = -1;
+	while (str[++i])
+		if (c == str[i])
 		{
 			var->conv = c;
 			return (1);
@@ -84,7 +87,7 @@ int		ft_parse(char *s, int *i, t_variable *var, va_list args)
 	ft_flag_save(s, var, i);
 	ft_prec_width_parse(s, i, var, args);
 	ft_mod_check(s, i, var);
-	if (ft_conv_check(-1, "sSpdDioOuUxXcC", s[*i], var))
+	if (conv_check("sSpdDioOuUxXcC", s[*i], var))
 		return (1);
 	if (var->zero)
 		ft_putstr(str_zeros("", var), var);
