@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:22:49 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 19:40:39 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 20:21:51 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	init_var(t_variable *var)
 	var->zero = 0;
 }
 
-char	*ft_mod_cast(va_list args, t_variable *var, int base)
+char	*mod_cast(va_list args, t_variable *var, int base)
 {
 	var->num += 1;
 	if (!var->mod)
@@ -49,7 +49,7 @@ char	*ft_mod_cast(va_list args, t_variable *var, int base)
 		return (ft_itoabase_umax(va_arg(args, intmax_t), base, var));
 }
 
-char	*ft_hex_cast(va_list args, t_variable *var, int base)
+char	*hex_cast(va_list args, t_variable *var, int base)
 {
 	var->num += 1;
 	if (!var->mod)

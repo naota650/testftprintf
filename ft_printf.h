@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 20:04:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 20:12:56 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 20:21:44 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ char			*prec_copy(char *str, t_variable *var);
 void			do_flags(char *str, t_variable *var);
 void			convert_variable(t_variable *var, va_list args);
 void			init_var(t_variable *var);
-char			*ft_mod_cast(va_list args, t_variable *var, int base);
-char			*ft_hex_cast(va_list args, t_variable *var, int base);
+char			*mod_cast(va_list args, t_variable *var, int base);
+char			*hex_cast(va_list args, t_variable *var, int base);
 void			ft_putwstr(wchar_t *ws, t_variable *var, int i);
 wchar_t			*ft_wchrtostr(wchar_t wchar);
 char			*ft_itoa(int nbr, t_variable *var, int length, int sign);
