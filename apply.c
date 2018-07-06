@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 19:32:33 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 19:52:31 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	convert_variable(t_variable *var, va_list args)
 	(var->zero && var->minus) ? var->zero = 0 : 0;
 	if (var->conv == 's' && !var->mod)
 		do_flags(va_arg(args, char*), var);
+	else if (var->conv == 'c')
+		ft_putchar(va_arg(args, int), var);
 	else if (var->conv == 'D')
 		do_flags(ft_itoabase_umax(va_arg(args, long), 10, var), var);
 	else if (var->conv == 'S' ||
@@ -54,8 +56,6 @@ void	convert_variable(t_variable *var, va_list args)
 		ft_putwstr(va_arg(args, wchar_t*), var, -1);
 	else if (var->conv == 'C')
 		ft_putwstr((ft_wchrtostr(va_arg(args, wchar_t))), var, -1);
-	else if (var->conv == 'c')
-		ft_putchar(va_arg(args, int), var);
 	else if (var->conv == 'o' || var->conv == 'O')
 		do_flags(ft_otoa(va_arg(args, unsigned int), var), var);
 	else if (var->conv == 'p')
