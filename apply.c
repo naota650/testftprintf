@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 19:04:14 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/05 19:32:33 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	do_flags(char *str, t_variable *var)
 	(var->space && str[0] != '-') ? var->width -= 1 : 0;
 	var->prec -= ft_strlen(str);
 	(var->plus && str[0] != '-') ? var->width -= 1 : 0;
-	str = (var->num) ? ft_zeros(str, var) : str;
+	str = (var->num) ? str_zeros(str, var) : str;
 	var->width -= ft_strlen(str);
 	str = (var->plus && str[0] != '-') ? ft_strjoin("+", str) : str;
 	str = ft_spaces(str, var);
