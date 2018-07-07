@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:23:33 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/07 16:02:53 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/07 16:16:01 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	init_flag(char *str, t_variable *var, int *i)
 	while (str[*i] && (str[*i] == '0' || str[*i] == '+' ||
 				str[*i] == '-' || str[*i] == '#' || str[*i] == ' '))
 	{
-		if (str[*i] == '0') 
+		if (str[*i] == '0')
 			var->zero += 1;
 		if (str[*i] == '-')
 			var->minus += 1;
@@ -92,7 +92,7 @@ int		parse_format(char *str, int *i, t_variable *var, va_list args)
 	init_flag(str, var, i);
 	parse_prec_width(str, i, var, args);
 	init_mod(str, i, var);
-	if (conv_check("sSpdDioOuUxXcC", str[*i], var))
+	if (conv_check("cCdDioOpuUsSxX", str[*i], var))
 		return (1);
 	if (var->zero)
 		ft_putstr(str_zeros("", var), var);

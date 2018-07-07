@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:25:39 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 20:36:59 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/07 16:17:41 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ char	*ft_itoa(int nbr, t_variable *var, int length, int sign)
 	sign = nbr < 0 ? 1 : 0;
 	length = nbr < 0 ? length += 1 : length;
 	str = (char*)malloc(sizeof(char) * length + 1);
-	if (nbr == -2147483648)
-		return (str = ft_strdup("-2147483648"));
 	if (!str)
 		return (NULL);
-	(sign) ? str[0] = '-' : 0;
+	if (nbr == -2147483648)
+		return (str = ft_strdup("-2147483648"));
+	if (sign)
+		str[0] = '-';
 	nbr = nbr < 0 ? nbr *= -1 : nbr;
 	while (--length >= sign)
 	{
@@ -76,8 +77,11 @@ char	*ft_itoabase_umax(size_t num, int base, t_variable *var)
 	return (str);
 }
 
-int		get_snumlen(intmax_t num, int i)
+int		intmaxlen(intmax_t num)
 {
+	int i;
+
+	i = 1;
 	while (num /= 10)
 		i++;
 	return (i);
@@ -89,7 +93,7 @@ char	*ft_itoa_smax(intmax_t num)
 	int			len;
 	uintmax_t	tmp;
 
-	len = get_snumlen(num, 1);
+	len = intmaxlen(num);
 	tmp = num;
 	if (num < 0)
 	{
