@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:24:47 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 20:35:54 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/07 15:43:48 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ void	do_flags(char *str, t_variable *var)
 	(str[0] == '-') ? var->prec += 1 : 0;
 	if (!var->num)
 		str = (var->prec) ? prec_copy(str, var) : str;
-	str = (var->pound && var->conv == 'x' && !var->zero)
-		? ft_strjoin("0x", str) : str;
+//	str = (var->pound && var->conv == 'x' && !var->zero)
+		//? ft_strjoin("0x", str) : str;
+	if (!var->zero && var->pound && var->conv == 'x')
+		ft_strjoin("0x", str);
 	str = (var->pound && var->conv == 'X' && !var->zero)
 		? ft_strjoin("0X", str) : str;
 	(var->space && str[0] != '-') ? var->width -= 1 : 0;
