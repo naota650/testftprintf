@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:23:33 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 20:32:58 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/07 16:02:53 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,19 @@ void	init_mod(char *s, int *i, t_variable *var)
 
 void	init_flag(char *str, t_variable *var, int *i)
 {
-	while (str[*i] && (str[*i] == '#' || str[*i] == '0' ||
-				str[*i] == '-' || str[*i] == '+' || str[*i] == ' '))
+	while (str[*i] && (str[*i] == '0' || str[*i] == '+' ||
+				str[*i] == '-' || str[*i] == '#' || str[*i] == ' '))
 	{
-		(str[*i] == '0') ? var->zero += 1 : 0;
-		(str[*i] == '-') ? var->minus += 1 : 0;
-		(str[*i] == '+') ? var->plus += 1 : 0;
-		(str[*i] == '#') ? var->pound += 1 : 0;
-		(str[*i] == ' ') ? var->space += 1 : 0;
+		if (str[*i] == '0') 
+			var->zero += 1;
+		if (str[*i] == '-')
+			var->minus += 1;
+		if (str[*i] == '+')
+			var->plus += 1;
+		if (str[*i] == '#')
+			var->pound += 1;
+		if (str[*i] == ' ')
+			var->space += 1;
 		*i += 1;
 	}
 }
