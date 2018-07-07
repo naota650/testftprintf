@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:22:49 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 20:21:51 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/07 16:25:38 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,36 +36,36 @@ char	*mod_cast(va_list args, t_variable *var, int base)
 	else if (ft_strcmp(var->mod, "h") == 0)
 		return (ft_itoa((short)va_arg(args, int), var, 1, 0));
 	else if (ft_strcmp(var->mod, "hh") == 0)
-		return (ft_itoa_smax((char)va_arg(args, int)));
+		return (ft_itoa_intmax((char)va_arg(args, int)));
 	else if (ft_strcmp(var->mod, "j") == 0)
-		return (ft_itoa_smax(va_arg(args, intmax_t)));
+		return (ft_itoa_intmax(va_arg(args, intmax_t)));
 	else if (ft_strcmp(var->mod, "l") == 0)
-		return (ft_itoa_smax(va_arg(args, long)));
+		return (ft_itoa_intmax(va_arg(args, long)));
 	else if (ft_strcmp(var->mod, "ll") == 0)
-		return (ft_itoa_smax(va_arg(args, long long)));
+		return (ft_itoa_intmax(va_arg(args, long long)));
 	else if (ft_strcmp(var->mod, "z") == 0)
-		return (ft_itoa_smax(va_arg(args, ssize_t)));
+		return (ft_itoa_intmax(va_arg(args, ssize_t)));
 	else
-		return (ft_itoabase_umax(va_arg(args, intmax_t), base, var));
+		return (ft_itoabase(va_arg(args, intmax_t), base, var));
 }
 
 char	*hex_cast(va_list args, t_variable *var, int base)
 {
 	var->num += 1;
 	if (!var->mod)
-		return (ft_itoabase_umax((va_arg(args, unsigned int)), base, var));
+		return (ft_itoabase((va_arg(args, unsigned int)), base, var));
 	else if (ft_strcmp(var->mod, "h") == 0)
-		return (ft_itoabase_umax((short)va_arg(args, int), base, var));
+		return (ft_itoabase((short)va_arg(args, int), base, var));
 	else if (ft_strcmp(var->mod, "hh") == 0)
-		return (ft_itoabase_umax((char)va_arg(args, int), base, var));
+		return (ft_itoabase((char)va_arg(args, int), base, var));
 	else if (ft_strcmp(var->mod, "j") == 0)
-		return (ft_itoabase_umax(va_arg(args, intmax_t), base, var));
+		return (ft_itoabase(va_arg(args, intmax_t), base, var));
 	else if (ft_strcmp(var->mod, "l") == 0)
-		return (ft_itoabase_umax(va_arg(args, long), base, var));
+		return (ft_itoabase(va_arg(args, long), base, var));
 	else if (ft_strcmp(var->mod, "ll") == 0)
-		return (ft_itoabase_umax(va_arg(args, long long), base, var));
+		return (ft_itoabase(va_arg(args, long long), base, var));
 	else if (ft_strcmp(var->mod, "z") == 0)
-		return (ft_itoabase_umax(va_arg(args, ssize_t), base, var));
+		return (ft_itoabase(va_arg(args, ssize_t), base, var));
 	else
-		return (ft_itoabase_umax(va_arg(args, intmax_t), base, var));
+		return (ft_itoabase(va_arg(args, intmax_t), base, var));
 }

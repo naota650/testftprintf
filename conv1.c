@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:25:39 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/07 16:17:41 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/07 16:26:21 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		num_base_length(size_t num, int base)
 	return (i);
 }
 
-char	*ft_itoabase_umax(size_t num, int base, t_variable *var)
+char	*ft_itoabase(size_t num, int base, t_variable *var)
 {
 	char			*str;
 	int				len;
@@ -87,7 +87,7 @@ int		intmaxlen(intmax_t num)
 	return (i);
 }
 
-char	*ft_itoa_smax(intmax_t num)
+char	*ft_itoa_intmax(intmax_t num)
 {
 	char		*str;
 	int			len;
