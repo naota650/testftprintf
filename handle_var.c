@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 15:58:06 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/07 16:26:18 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/07 16:47:22 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	convert_variable(t_variable *var, va_list args)
 	else if (var->conv == 'c')
 		ft_putchar(va_arg(args, int), var);
 	else if (var->conv == 'C')
-		ft_putwstr((ft_wchrtostr(va_arg(args, wchar_t))), var, -1);
+		ft_putwstr((ft_wchrtostr(va_arg(args, wchar_t))), var);
 	else if (var->conv == 'd' || var->conv == 'i')
 		do_flags(mod_cast(args, var, 10), var);
 	else if (var->conv == 'D')
@@ -63,7 +63,7 @@ void	convert_variable(t_variable *var, va_list args)
 		do_flags(ft_ptoa(va_arg(args, unsigned long int), var), var);
 	else if (var->conv == 'S' ||
 			(var->conv == 's' && ft_strcmp("l", var->mod) == 0))
-		ft_putwstr(va_arg(args, wchar_t*), var, -1);
+		ft_putwstr(va_arg(args, wchar_t*), var);
 	else if (var->conv == 'u' || var->conv == 'U')
 		do_flags(ft_itoabase(va_arg(args, intmax_t), 10, var), var);
 	else if (var->conv == 'x' || var->conv == 'X')

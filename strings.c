@@ -6,14 +6,17 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 21:27:46 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 19:41:40 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/07 16:45:10 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_putwstr(wchar_t *ws, t_variable *var, int i)
+void		ft_putwstr(wchar_t *ws, t_variable *var)
 {
+	int i;
+
+	i = -1;
 	var->width -= (ft_wstrlen(ws) - var->prec);
 	var->minus ? var->zero = 0 : 0;
 	if (var->width > 0 && !var->minus)
@@ -80,11 +83,11 @@ char		*ft_spaces(char *str, t_variable *var)
 {
 	char	block[var->width + 1];
 	int		i;
-	char	edge[2];
+	char	filler[2];
 
 	i = 0;
-	edge[0] = str[0];
-	edge[1] = '\0';
+	filler[0] = str[0];
+	filler[1] = '\0';
 	if (var->width < 1)
 		return (str);
 	while (i < var->width)
@@ -93,10 +96,10 @@ char		*ft_spaces(char *str, t_variable *var)
 		i++;
 	}
 	block[i] = '\0';
-	if ((edge[0] == '-' || edge[0] == '+') && var->zero && var->num)
+	if ((filler[0] == '-' || filler[0] == '+') && var->zero && var->num)
 	{
 		str = ft_strjoin(block, &str[1]);
-		str = ft_strjoin(edge, str);
+		str = ft_strjoin(filler, str);
 	}
 	else
 		str = (var->minus) ? ft_strjoin(str, block) : ft_strjoin(block, str);

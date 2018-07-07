@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:20:27 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 20:42:12 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/07 16:47:03 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ char	*ft_strrev(char *str)
 	return (str);
 }
 
-char	*ft_strcpy(char *dest, const char *src, size_t i)
+char	*ft_strcpy(char *dest, const char *src)
 {
+	int i;
+
+	i = -1;
 	while (src[++i])
 		dest[i] = src[i];
 	dest[i] = '\0';
@@ -49,7 +52,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!(str = (char *)malloc(ft_strlen((char *)s1) +
 					ft_strlen((char *)s2))))
 		return (NULL);
-	str = ft_strcpy(str, s1, -1);
+	str = ft_strcpy(str, s1);
 	str = ft_strcat(str, s2);
 	return (str);
 }

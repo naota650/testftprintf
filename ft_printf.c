@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 19:21:30 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/05 20:09:17 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/07 16:34:09 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	check_format(const char *format, va_list args, int *bytes)
 {
 	t_variable		var;
 	int				i;
-	int				x;
+	int				j;
 
 	i = -1;
-	x = ft_strlen((char*)format);
+	j = ft_strlen((char*)format);
 	while (format[++i])
 	{
 		init_var(&var);
@@ -35,7 +35,7 @@ void	check_format(const char *format, va_list args, int *bytes)
 			else if (format[i])
 				ft_putchar(format[i], &var);
 		}
-		else if (i < x)
+		else if (i < j)
 			ft_putchar(format[i], &var);
 		*bytes += var.bytes;
 	}
