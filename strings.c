@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 21:27:46 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/07 16:45:10 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/07 17:03:35 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,29 +59,29 @@ wchar_t		*ft_wchrtostr(wchar_t wchar)
 
 char		*str_zeros(char *str, t_variable *var)
 {
-	char	block[var->prec + 1];
+	char	temp[var->prec + 1];
 	int		i;
 
 	i = -1;
 	if (var->prec < 0)
 		return (str);
 	while (++i < var->prec)
-		block[i] = '0';
-	block[i] = '\0';
+		temp[i] = '0';
+	temp[i] = '\0';
 	if (str[0] == '-')
 	{
-		str = ft_strjoin(block, &str[1]);
+		str = ft_strjoin(temp, &str[1]);
 		str = ft_strjoin("-", str);
 	}
 	else
-		str = ft_strjoin(block, str);
+		str = ft_strjoin(temp, str);
 	var->zero = 0;
 	return (str);
 }
 
 char		*ft_spaces(char *str, t_variable *var)
 {
-	char	block[var->width + 1];
+	char	temp[var->width + 1];
 	int		i;
 	char	filler[2];
 
@@ -92,17 +92,17 @@ char		*ft_spaces(char *str, t_variable *var)
 		return (str);
 	while (i < var->width)
 	{
-		block[i] = (var->zero) ? '0' : ' ';
+		temp[i] = (var->zero) ? '0' : ' ';
 		i++;
 	}
-	block[i] = '\0';
+	temp[i] = '\0';
 	if ((filler[0] == '-' || filler[0] == '+') && var->zero && var->num)
 	{
-		str = ft_strjoin(block, &str[1]);
+		str = ft_strjoin(temp, &str[1]);
 		str = ft_strjoin(filler, str);
 	}
 	else
-		str = (var->minus) ? ft_strjoin(str, block) : ft_strjoin(block, str);
+		str = (var->minus) ? ft_strjoin(str, temp) : ft_strjoin(temp, str);
 	return (str);
 }
 
