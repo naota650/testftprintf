@@ -6,7 +6,7 @@
 /*   By: lmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 15:58:06 by lmartine          #+#    #+#             */
-/*   Updated: 2018/07/12 14:09:40 by lmartine         ###   ########.fr       */
+/*   Updated: 2018/07/12 14:16:00 by lmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,14 @@ void	do_flags(char *str, t_variable *var)
 	(str[0] == '-') ? var->prec += 1 : 0;
 	if (!var->num)
 		str = (var->prec) ? prec_copy(str, var) : str;
-	if (!var->zero && var->pound && var->conv == 'x')
-		ft_strjoin("0x", str);
-	if (!var->zero && var->pound && var->conv == 'X')
-		ft_strjoin("0X", str);
+//	if (!var->zero && var->pound && var->conv == 'x')
+//		ft_strjoin("0x", str);
+//	if (!var->zero && var->pound && var->conv == 'X')
+//		ft_strjoin("0X", str);
+	str = (var->pound && var->conv == 'x' && !var->zero)
+		? ft_strjoin("0x", str) : str;
+	str = (var->pound && var->conv == 'X' && !var->zero)
+		? ft_strjoin("0X", str) : str;
 	(var->space && str[0] != '-') ? var->width -= 1 : 0;
 	var->prec -= ft_strlen(str);
 	(var->plus && str[0] != '-') ? var->width -= 1 : 0;
@@ -33,13 +37,14 @@ void	do_flags(char *str, t_variable *var)
 	var->width -= ft_strlen(str);
 	str = (var->plus && str[0] != '-') ? ft_strjoin("+", str) : str;
 	str = ft_spaces(str, var);
-	if (var->zero && var->pound && var->conv == 'x')
-		ft_strjoin("0x", str);
-	if (var->zero && var->pound && var->conv == 'X')
-		ft_strjoin("0X", str);
+//	if (var->zero && var->pound && var->conv == 'x')
+//		ft_strjoin("0x", str);
+//	if (var->zero && var->pound && var->conv == 'X')
+//		ft_strjoin("0X", str);
+	str = (var->pound && var->conv == 'x' && var->zero) ? ft_strjoin("0x", str) : str;
+	str = (var->pound && var->conv == 'X' && var->zero) ? ft_strjoin("0X", str) : str;
 	str = (var->space && str[0] != '-') ? ft_strjoin(" ", str) : str;
-	ft_putstr(str, var);
-}
+	ft_putstr(str, var);}
 
 void	convert_variable(t_variable *var, va_list args)
 {
